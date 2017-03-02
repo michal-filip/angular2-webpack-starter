@@ -1,8 +1,11 @@
-import { Component } from '@angular/core';
+import {
+  Component,
+  OnInit
+} from '@angular/core';
 
 import { AppState } from '../app.service';
 import { Title } from './title';
-import { XLarge } from './x-large';
+import { XLargeDirective } from './x-large';
 
 @Component({
   // The selector is what angular internally uses
@@ -13,35 +16,28 @@ import { XLarge } from './x-large';
   providers: [
     Title
   ],
-  // We need to tell Angular's compiler which directives are in our template.
-  // Doing so will allow Angular to attach our behavior to an element
-  directives: [
-    XLarge
-  ],
-  // We need to tell Angular's compiler which custom pipes are in our template.
-  pipes: [ ],
   // Our list of styles in our component. We may add more to compose many styles together
-  styles: [ require('./home.css') ],
+  styleUrls: [ './home.component.css' ],
   // Every Angular template is first compiled by the browser before Angular runs it's compiler
-  template: require('./home.html')
+  templateUrl: './home.component.html'
 })
-export class Home {
+export class HomeComponent implements OnInit {
   // Set our default values
-  localState = { value: '' };
+  public localState = { value: '' };
   // TypeScript public modifiers
-  constructor(public appState: AppState, public title: Title) {
+  constructor(
+    public appState: AppState,
+    public title: Title
+  ) {}
 
-  }
-
-  ngOnInit() {
+  public ngOnInit() {
     console.log('hello `Home` component');
     // this.title.getData().subscribe(data => this.data = data);
   }
 
-  submitState(value) {
+  public submitState(value: string) {
     console.log('submitState', value);
     this.appState.set('value', value);
     this.localState.value = '';
   }
-
 }

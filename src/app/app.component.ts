@@ -1,12 +1,12 @@
 /*
  * Angular 2 decorators and services
  */
-import { Component, ViewEncapsulation } from '@angular/core';
-import { RouteConfig, Router } from '@angular/router-deprecated';
-
+import {
+  Component,
+  OnInit,
+  ViewEncapsulation
+} from '@angular/core';
 import { AppState } from './app.service';
-import { Home } from './home';
-import { RouterActive } from './router-active';
 
 /*
  * App Component
@@ -14,55 +14,60 @@ import { RouterActive } from './router-active';
  */
 @Component({
   selector: 'app',
-  pipes: [ ],
-  providers: [ ],
-  directives: [ RouterActive ],
   encapsulation: ViewEncapsulation.None,
-  styles: [
-    require('./app.css')
+  styleUrls: [
+    './app.component.css'
   ],
   template: `
-    <span router-active>
-      <button [routerLink]=" ['Index'] ">
+    <nav>
+      <a [routerLink]=" ['./'] "
+        routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
         Index
-      </button>
-    </span>
-    <span router-active>
-      <button [routerLink]=" ['Home'] ">
+      </a>
+      <a [routerLink]=" ['./home'] "
+        routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
         Home
-      </button>
-    </span>
-    <span router-active>
-      <button [routerLink]=" ['About'] ">
+      </a>
+      <a [routerLink]=" ['./detail'] "
+        routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
+        Detail
+      </a>
+      <a [routerLink]=" ['./barrel'] "
+        routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
+        Barrel
+      </a>
+      <a [routerLink]=" ['./about'] "
+        routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
         About
-      </button>
-    </span>
+      </a>
+    </nav>
 
     <main>
       <router-outlet></router-outlet>
     </main>
 
     <pre class="app-state">this.appState.state = {{ appState.state | json }}</pre>
+
+    <footer>
+      <span>WebPack Angular 2 Starter by <a [href]="url">@AngularClass</a></span>
+      <div>
+        <a [href]="url">
+          <img [src]="angularclassLogo" width="25%">
+        </a>
+      </div>
+    </footer>
   `
 })
-@RouteConfig([
-  { path: '/',      name: 'Index', component: Home, useAsDefault: true },
-  { path: '/home',  name: 'Home',  component: Home },
-  // Async load a component using Webpack's require with es6-promise-loader and webpack `require`
-  { path: '/about', name: 'About', loader: () => require('es6-promise!./about')('About') }
-])
-export class App {
-  angularclassLogo = 'assets/img/angularclass-avatar.png';
-  loading = false;
-  name = 'Angular 2 Webpack Starter';
-  url = 'https://twitter.com/AngularClass';
+export class AppComponent implements OnInit {
+  public angularclassLogo = 'assets/img/angularclass-avatar.png';
+  public name = 'Angular 2 Webpack Starter';
+  public url = 'https://twitter.com/AngularClass';
 
   constructor(
-    public appState: AppState) {
+    public appState: AppState
+  ) {}
 
-  }
-
-  ngOnInit() {
+  public ngOnInit() {
     console.log('Initial App State', this.appState.state);
   }
 
