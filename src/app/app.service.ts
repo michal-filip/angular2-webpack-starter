@@ -1,13 +1,17 @@
 import { Injectable } from '@angular/core';
+import { User } from './shared';
 
 export type InternalStateType = {
-  [key: string]: any
+  [key: string]: any;
+  users: User[];
 };
 
 @Injectable()
 export class AppState {
 
-  public _state: InternalStateType = { };
+  public _state: InternalStateType = {
+    users: []
+  };
 
   // already return a clone of the current state
   public get state() {
