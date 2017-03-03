@@ -1,0 +1,7 @@
+<ul>
+    <li *ngFor="let user of users">
+        {{ user.firstname }} {{ user.lastname }}
+
+        <button (click)="detail.next(user)">Detail</button>
+    </li>
+</ul>

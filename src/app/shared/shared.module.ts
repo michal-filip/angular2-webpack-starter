@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { LoaderComponent } from './components/loader/loader.component';
@@ -13,6 +13,14 @@ import { LoaderComponent } from './components/loader/loader.component';
     declarations: [
         LoaderComponent
     ],
-    providers: [],
+    providers: []
 })
-export class SharedModule { }
+export class SharedModule {
+    public static forRoot(): ModuleWithProviders {
+        return {
+            ngModule: SharedModule,
+            providers: [
+            ]
+        };
+    }
+}

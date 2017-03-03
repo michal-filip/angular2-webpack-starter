@@ -54,12 +54,12 @@ describe(`Home`, () => {
   //   expect(comp.localState).toBe({ value: '' });
   // });
 
-  it('should log ngOnInit', () => {
-    spyOn(console, 'log');
-    expect(console.log).not.toHaveBeenCalled();
+  // it('should log ngOnInit', () => {
+  //   spyOn(console, 'log');
+  //   expect(console.log).not.toHaveBeenCalled();
 
-    comp.ngOnInit();
-    expect(console.log).toHaveBeenCalled();
-  });
+  //   comp.ngOnInit();
+  //   expect(console.log).toHaveBeenCalled();
+  // });
 
 });
