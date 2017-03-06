@@ -1,7 +1,7 @@
-<ul>
-    <li *ngFor="let user of users">
-        {{ user.firstname }} {{ user.lastname }}
+<md-list>
+ <md-list-item *ngFor="let user of users">
+     {{ user.firstname }} {{ user.lastname }}
 
-        <button (click)="detail.next(user)">Detail</button>
-    </li>
-</ul>
+    <button md-button (click)="detail.next(user)">Detail</button>
+ </md-list-item>
+</md-list>

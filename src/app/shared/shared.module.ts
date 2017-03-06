@@ -1,11 +1,13 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MaterialModule } from '@angular/material';
 
 import { LoaderComponent } from './components/loader/loader.component';
 
 @NgModule({
     imports: [
-        CommonModule
+        CommonModule,
+        MaterialModule
     ],
     exports: [
         LoaderComponent

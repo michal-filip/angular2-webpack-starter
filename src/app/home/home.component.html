@@ -24,13 +24,12 @@
   <loader [loading]="localState.loadingState">foo</loader>
 
   <h2>User form</h2>
-  <div>
-    <label>First name</label>
-    <input [(ngModel)]="localState.user.firstname">
-  </div>
-  <div>
-    <label>Last name</label>
-    <input [(ngModel)]="localState.user.lastname">
-  </div>
-  <button (click)="addUser()">Add</button>
+  <md-input-container>
+    <input mdInput placeholder="First name" [(ngModel)]="localState.user.firstname">
+  </md-input-container>
+  <md-input-container>
+    <input mdInput placeholder="Last name" [(ngModel)]="localState.user.lastname">
+  </md-input-container>
+
+  <button md-button (click)="addUser()">Add</button>
 </div>

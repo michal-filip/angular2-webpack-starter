@@ -32,7 +32,7 @@ import { CommonModule } from '@angular/common';
 import { SharedModule } from './shared/shared.module';
 
 import '../styles/styles.scss';
-import '../styles/headings.css';
+import { MaterialModule } from '@angular/material';
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -60,6 +60,7 @@ type StoreType = {
   imports: [ // import Angular's modules
     BrowserModule,
     CommonModule,
+    MaterialModule,
 
     FormsModule,
     HttpModule,

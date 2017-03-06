@@ -10,7 +10,7 @@ import { UserService } from '../../services/user.service';
         <loader [loading]="!user">
             <user-detail [user]="user"></user-detail>
         </loader>
-        <button (click)="goBack()">Back</button>
+        <button md-button (click)="goBack()">Back</button>
     `
 })
 export class UserDetailPageComponent implements OnInit {

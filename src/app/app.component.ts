@@ -19,32 +19,34 @@ import { AppState } from './app.service';
     './app.component.css'
   ],
   template: `
-    <nav>
-      <a [routerLink]=" ['./'] "
-        routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
-        Index
-      </a>
-      <a [routerLink]=" ['./home'] "
-        routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
-        Home
-      </a>
-      <a [routerLink]=" ['./detail'] "
-        routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
-        Detail
-      </a>
-      <a [routerLink]=" ['./barrel'] "
-        routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
-        Barrel
-      </a>
-      <a [routerLink]=" ['./about'] "
-        routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
-        About
-      </a>
-      <a [routerLink]=" ['./users'] "
-        routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
-        Users
-      </a>
-    </nav>
+    <md-toolbar>
+      Luncher
+
+      <md-toolbar-row>
+        <nav md-tab-nav-bar>
+          <a md-tab-link [routerLink]=" ['./'] "
+            routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
+            Index
+          </a>
+          <a md-tab-link [routerLink]=" ['./home'] "
+            routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
+            Home
+          </a>
+          <a md-tab-link [routerLink]=" ['./detail'] "
+            routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
+            Detail
+          </a>
+          <a md-tab-link [routerLink]=" ['./about'] "
+            routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
+            About
+          </a>
+          <a md-tab-link [routerLink]=" ['./users'] "
+            routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
+            Users
+          </a>
+        </nav>
+      </md-toolbar-row>
+    </md-toolbar>
 
     <main>
       <router-outlet></router-outlet>

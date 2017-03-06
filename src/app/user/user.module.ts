@@ -1,19 +1,21 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { MaterialModule } from '@angular/material';
+import { SharedModule } from '../shared/shared.module';
 
 import { UserDetailComponent } from './components/user-detail/user-detail.component';
 import { UserListComponent } from './components/user-list/user-list.component';
-import { UserService } from './services/user.service';
 import { UserListPageComponent } from './components/user-list-page/user-list-page.component';
 import { UserDetailPageComponent } from './components/user-detail-page/user-detail-page.component';
-import { SharedModule } from '../shared/shared.module';
+import { UserService } from './services/user.service';
 
 @NgModule({
     imports: [
         CommonModule,
         RouterModule.forChild(UserModule.routes),
-        SharedModule
+        SharedModule,
+        MaterialModule
     ],
     exports: [],
     declarations: [
